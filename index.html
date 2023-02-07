@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Mikaels webbutik</title>
+</head>
+<body>
+    <!-- Hemsidans nav 
+    <header id="header"></header>
+    -->
+    <nav>
+        <a href="index.html" id="logo">Mikaels webbutik</a>
+        <div id="navbar-right">
+            <ul id="header">
+
+            </ul>
+        </div>
+        <div id="cartButton"> <!-- placerar knapp -->
+            <input type="button" id="kundvagnbutton" value="kundvagn"><span id="cartItemNumber"></span> <!-- cart knapp uppe i höger hörn | id kundvagnbutton fångas i JS-->
+        </div>
+    </nav>
+  
+    <!-- Shopping cart ruta! -->
+    <section id="showCart" class="hideCart"> <!-- showCart togglar show/hide cart | .hide gömmer i css -->
+        <article class="articleFrameCart">
+            <label><h3> Shopping cart</h3></label>
+            <table id="tillagd">
+            <br>
+            </table>
+            <p id="totalSumCart"></p>
+           <!--
+            <br>
+            <hr id="cartHR">
+            <b>Total Summa: </b>
+            --> 
+        </article>
+    </section>
+
+    <!-- Checkout / slutbeställning -->
+    <section id="showCheckout" class="hideCheckout">
+        <article class="articleFrame">
+            <h1>Beställning:</h1>
+            <br>
+
+            <div class="flex-container">
+                <hr id="cartHR">
+                <p id="checkout"></p>
+
+                <br>
+            </div>
+
+            <div>
+                <p id="checkform">
+                    <fieldset>
+                        <legend><strong> Kunduppgifter: </strong></legend><br>
+                            <form onsubmit="return false">
+                                <input type="text" id="skurt" name="name" placeholder="Skriv in namn..." required>
+                                <br><br>
+                                <input type="email" id="epost" name="epost" placeholder="Skriv in e-post..." required>
+                                <br><br>
+                                <input type="text" id="address" name="address" placeholder="Skriv in address..." required>
+                                <br><br>
+                                <select name="shipping" id="shipping" required>
+                                    <option value="" disabled selected>---</option>
+                                    <option value="standard shipping">Standard shipping</option>
+                                    <option value="UPS shipping">UPS shipping</option>
+                                    <option value="PostNord">PostNord</option>
+                                    <option value="Express">Express</option>
+                                </select>
+                                <br><br>
+                                <input type="submit" value="slutför beställning" onClick="(addUser())">
+                            </form>
+                    </fieldset>
+                </p>
+            </div>
+        </article>
+    </section>
+
+    <!-- Hemsidans innehåll! -->
+    <section id="webbutik" class="showWebbutik">
+
+
+    </section>
+
+
+    <script src="./js/app.js"></script>
+</body>
+</html>

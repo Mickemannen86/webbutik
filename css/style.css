@@ -1,0 +1,266 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin-top: 150px;
+    background-color: aliceblue;
+}
+
+nav {
+    display: inline;
+    overflow: hidden;
+    background-color: rgb(49, 84, 85);
+    text-decoration: none;
+    color: rgb(238, 213, 175);
+    border-bottom: solid;
+    border-color: rgb(238, 213, 175);
+    padding: 20px 0px; /* Large padding which will shrink on scroll (using JS) */
+    transition: 0.4s; /* Adds a transition effect when the padding is decreased */
+    position: fixed; /* Sticky/fixed navbar */
+    width: 100%;
+    transition: top 0.3s ease; /* Transition effect when sliding down (and up) */
+    top: 0; /* At the top */
+    z-index: 99;
+}
+
+/* Style the navbar links */
+nav a {
+    float: left;
+    display: block;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 12px;
+    margin: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+  }
+
+nav ul li {
+    list-style: none;
+  }
+  
+
+/* color logo name */
+nav span {
+    color: rgb(189, 161, 1);
+  }
+
+  /* Style the logo */
+  nav #logo {
+    font-size: 35px;
+    font-weight: bold;
+    transition: 0.4s;
+    background-color: rgb(49, 84, 85);
+    margin-left: 20px;
+    border-top: solid;
+    border-bottom: solid;
+    color: rgb(238, 213, 175);
+  }
+
+/* Links on mouse-over */
+nav a:hover {
+    background-color: rgba(0, 0, 0, 0.301);
+    color: rgb(255, 255, 255);
+  }
+
+/* Style the active/current link */
+nav a.active {
+    color: white;
+  }
+
+/* Display some links to the right */
+#navbar-right {
+    flex-direction: row;
+  }
+
+a, li {
+    list-style-type: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+article {
+    background-color: #fff;
+    margin: 30px;
+    padding: 30px;
+    border-bottom: solid ;
+    border-color: rgb(49, 84, 85);
+}
+
+fieldset {
+    padding: 1%;
+}
+
+h1 {
+    text-align: center;
+    background-color: rgb(49, 84, 85);
+    color: rgb(238, 213, 175);
+    border-radius: 70% 70% 0% 0%;
+    padding: 10px;
+    border-bottom: solid;
+}
+
+p {
+    color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.788);
+}
+
+input,select {
+    font-size: 1em;
+    background-color: rgb(49, 84, 85);
+    color: rgb(238, 213, 175);
+    padding: 10px;
+    cursor: pointer;
+}
+
+img {
+    height: auto;
+    width: 200px;
+}
+
+hr {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+table td {
+    border-color: rgba(0, 0, 0, 0.452);
+    padding-right: 25px;
+}
+
+table input {
+    font-size: 0.8em;
+    background-color: rgb(49, 84, 85);
+    color: rgb(238, 213, 175);
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+/* Id's */
+#description {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-top: solid;
+    border-bottom: solid;
+    border-radius: 5% 5% 5% 5%;
+    border-color: rgba(0, 0, 0, 0.452);
+}
+
+#cartHR {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#cartButton {
+    display: flex;
+    position: fixed;
+    -ms-flex-align:center;
+    margin-top: 1%;
+    margin-left: 93%;
+}
+
+#cartItemNumber {
+    background-color: rgb(255, 255, 255);
+    font-weight: bolder;
+    font-size: 0.7em;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: -90px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+#checkoutButton {
+    font-size: 0.8em;
+    background-color: rgb(49, 84, 85);
+    color: rgb(238, 213, 175);
+    margin-top: 2%;
+    margin-left: 80%;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+#kundvagnbutton {
+    padding: 5px;
+    border-radius: 25%;
+    border-bottom: solid;
+}
+
+#totalPrice {
+margin-left: 64%;
+padding-right: 5px;
+}
+
+
+/* Classes */
+.articleFrame {
+    border-top: solid;
+    border-bottom: solid;
+    border-radius: 5% 5% 5% 5%;
+    border-color: rgba(0, 0, 0, 0.452);
+}
+
+.articleFrameCart {
+    margin-left: 50%;
+    margin-top: -28px;
+    border: solid;
+    border-radius: 0% 0% 5% 5%;
+    border-color: rgba(0, 0, 0, 0.452);
+    position: fixed;
+    right: -30px;
+    z-index: 99;
+    font-size: 16px;
+    outline: none;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;  /* column-reverse när de e mobil*/
+    align-items: center;
+    justify-content: center;
+}
+  
+.flex-container > div {
+    margin: 0px;
+    padding: 25px;
+    font-size: 1.2em;
+}
+
+
+/* HIDE CART */
+.hideCart {
+    display: none;
+  }
+
+.showCart {
+    display: block;
+}
+
+/* HIDE webbutik content */
+.webbutik article {
+    display: none;
+}
+
+.showWebbutik {
+    display: block;
+}
+
+/* HIDE checkout content */
+.hideCheckout {
+    display: none;
+}
+
+.showCheckout {
+    display: block;
+}

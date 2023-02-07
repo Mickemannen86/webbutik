@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Mikaels webbutik - electronics</title>
+</head>
+<body>
+    <!-- Hemsidans nav 
+    <header id="header"></header>
+    -->
+    <nav>
+        <a href="/" id="logo">Mikaels webbutik</a>
+        <div id="navbar-right">
+            <ul>
+                <li><a href="/">Tillbaka till användarsidan</a></li>
+                <li><a href="/html/admin.html">Admin-krypin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section>
+        <article class="articleFrame">
+                <h1>Admin sida</h1>
+                <br><br>
+            <fieldset>
+                <legend><strong>Kunduppgifter:</strong></legend><br>
+                    <form onSubmit="return false">
+                        <input type="text" id="admin-name" name="name" placeholder="Skriv in namn..." required>
+                        <br><br>
+                        <input type="email" id="admin-epost" name="epost" placeholder="Skriv in e-post..." required>
+                        <br><br>
+                        <input type="text" id="admin-address" name="address" placeholder="Skriv in address..." required>
+                        <br><br>
+                        <input type="text" id="admin-id" name="id" placeholder="enter product ID">
+                        <br><br>
+                        <select name="shipping" id="admin-shipping" required>
+                            <option value="" disabled selected>---</option>
+                            <option value="standard shipping">Standard shipping</option>
+                            <option value="UPS shipping">UPS shipping</option>
+                            <option value="PostNord">PostNord</option>
+                            <option value="Express">Express</option>
+                        </select>
+                    </form>
+                </fieldset>
+        </article>
+    </section>
+
+    <section id="adminSection"></section>
+
+    <script src="../js/admin.js"></script>
+</body>
+</html>
