@@ -105,7 +105,7 @@ function getContent(data, selectedCategory) {
         return false;
     }});
 
-    //console.log(content);
+    console.log(content);
 
     // nollställer värdena för varje gång sidan laddas in (för att undvika dubletter av utskriven data.)
     sectionEl.innerHTML = "";
@@ -123,6 +123,8 @@ function getContent(data, selectedCategory) {
             <p><b>${content[i].price} kr</b></p>
             <p id="description"><b>Product description: </b>${content[i].description}</p>
             <p><b>Product_id:</b> ${content[i].id}</p>
+            <br>
+            <p><b>Rating:<br>rate:</b> ${content[i].rating.rate} <b>count:</b> ${content[i].rating.count}</p>
             <br>
             <input type="button" value="Lägg till" onClick="addItem('${content[i].id}', '${content[i].title.replace("'","")}', '${content[i].price}')">
             <hr>
