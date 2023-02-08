@@ -89,8 +89,8 @@ function getAdminContent(content) {
                     "arrayValue": {
                         "values": [{
                             "stringValue": id
-                            }//,
-                        ],
+                            }
+                        ]
                     } 
                 }
             }
