@@ -88,8 +88,8 @@ function getAdminContent(content) {
                 "idproduct": {
                     "arrayValue": {
                         "values": [{
-                            "stringValue": id
-                            }
+                            "stringValue": id   // återigen, hur loopar man detta? alla order id hamnar i samma object vid update!
+                            },
                         ]
                     } 
                 }
