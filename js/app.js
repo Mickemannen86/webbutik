@@ -69,7 +69,7 @@ const shippingEl = document.getElementById("shipping");
 
 //*******************************************************************   GET fetch()    *************************************************************************** */
 
-// -- GET -- fetch(webbbutiks data)
+// -- GET -- fetch(webbbutiks data/artiklar mm.)
 fetch("https://fakestoreapi.com/products")
     .then(res => res.json())
     .then(data => {
@@ -188,7 +188,7 @@ function getContent(data, selectedCategory) {
             .then(data => console.log(data));
             console.log(body);
 
-            localStorage.clear();   // Rensa
+            localStorage.clear();   // Rensa localStorage efter POST = true.
             setTimeout(() => location.reload(), 2000); // reload sida efter 2 sekunder från POST ***********************************************************
 
 };
@@ -199,13 +199,13 @@ function getContent(data, selectedCategory) {
 //***********************************************************   Produkt funktioner   ***************************************************************************** */
 
 
-// Skapar Array för produkter (genom att deklarera array utanför funktioner så kommer vi åt den överallt).
+// Skapar Array för produkter (genom att deklarera array utanför funktioner så kommer vi åt den överallt). hämtar localStorage
 let productarray = JSON.parse(localStorage.getItem("output")) || [];
 
 // addItem() = Funktion som adderar produkter till kundvagn.
 function addItem(id, item, price) {
     
-// .push lägger till, i detta fall 'objekt' i array.
+// .push lägger till, i detta fall 'objekt-värdena' i array.
     productarray.push({
         id,
         item,
@@ -213,16 +213,15 @@ function addItem(id, item, price) {
 
 /********************************************  Projekt localStorage  ****************************************** */
 
-    // Konvertera objektet till JSON, lagra i variabel                                                                          2.
-    let json = JSON.stringify(productarray); // <-- här måste ja lägga in 'productArray' om ja vill att localStorage ska ta in fler object!!!!!!!!!!!! 'org: (object)'
+    // Konvertera array-objektet till JSON, lagra i variabel json                                                                       2.
+    let json = JSON.stringify(productarray); // <-- här måste jag lägga in 'productArray' om ja vill att localStorage ska ta in fler object! -- 'org: (object)'
 
     // Spara json-datan i localstorage-variabeln "output"                                                                       3.
     localStorage.setItem("output", json);
 
-    //cartItemNumberEl.innerHTML = productarray.length;   // Skriver till HTML på vår span (kundvagn) antal varor vi lägger i.     -- check! --
-    cartItemCounter();
-    updateCart();
-    //localStorage.clear();
+    cartItemCounter();  // Skriver till HTML på vår span (kundvagn) antal varor vi lägger i.     -- check! --
+    updateCart();       // function uppdaterar min cart efter borttag av vara.
+    //localStorage.clear(); // använd vid felsökning
     }
 
     function updateCart() {
@@ -249,26 +248,17 @@ function addItem(id, item, price) {
         <input type="button" id="checkoutButton" value="check out" onClick="checkOut(${sum.toFixed(2)}, showCheckout(), hideWebbutik())">`;
     
     }
-    updateCart();
-    cartItemCounter();
-    /************************************************************   RÄKNA ihop summa av produkter   **************************************************************** */
 
-   /* let sum = 0;
-    // Ex 1
-    productarray.forEach(element => {
-        sum += parseFloat(element.price); // med parseFloat() kan vi hantera decimaltal.
-    });
+    // Kallar funktioner igen efter borttag av varor och uppdatera cart.
+    updateCart();        // function uppdaterar min cart efter borttag av vara.
+    cartItemCounter();   // function uppdaterar min cartItemCounter efter borttag av vara (siffran som visar föremål i korg).
     
-    console.log("sista raden:    " + sum.toFixed(2));          // toFixed(2) avrundar alltid till 2 decimaler
 
-    /*************************************************************************************************************************************************************** */
-
-    // https://stackoverflow.com/questions/67095723/how-to-make-total-of-cart-price-in-a-shopping-cart
-
-
-// checkout! = get? sen ska dem hämtas (id?) när man betalar
+// checkout function = hämta valda artiklar man betalar
 function checkOut(sum) {
-//                                                                                  inne i checkout, vid klick på meny, göm checkout å visa categorierna på click!!!!!
+//                                 Att Fixa:     inne i checkout, vid klick på meny, göm checkout å visa categorierna på click!!!!
+
+    // Nollställa gammal utskrivt för varje gång funktionen körs
     checkoutEl.innerHTML = "";
     checkformEl.innerHTML = "";
 
@@ -300,22 +290,21 @@ function checkOut(sum) {
 
 // cartItemCounter() {
 function cartItemCounter() {   
-    let count = cartItemNumberEl.innerHTML = productarray.length;   // Skriver till HTML på vår span (kundvagn) antal varor vi lägger i.     -- check! --
+    // Skriver till HTML på vår span (kundvagn) antal varor vi lägger i.     -- check! --
+    let count = cartItemNumberEl.innerHTML = productarray.length;
     return count;
 }
 
 // Shopping cart knappar!
 function plusOneItem() {
-    //i = 0;
-    //productarray.splice(a,1);
-    //displaycart();
-    //onclick='deleteItem("+ (i++) +")'
-    
+
+    // senare project att utveckla vidare
+   
 }
 
 function deleteOneItem(id, index) {
 
-    // let funka = productarray.findIndex(item => item.id === id);  org!
+    // let funka = productarray.findIndex(item => item.id === id);  <-- org - Hade en tanke men funkar utan.
     productarray.findIndex(item => item.id === id); //ny
   
     productarray.splice(index, 1);
