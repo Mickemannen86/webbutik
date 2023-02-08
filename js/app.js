@@ -304,8 +304,8 @@ function plusOneItem() {
 
 function deleteOneItem(id, index) {
 
-    // let funka = productarray.findIndex(item => item.id === id);  <-- org - Hade en tanke men funkar utan.
-    productarray.findIndex(item => item.id === id); //ny
+    let funka = productarray.findIndex(item => item.id === id); // <-- org - Hade en tanke men funkar utan.
+    //productarray.findIndex(item => item.id === id); //ny
   
     productarray.splice(index, 1);
   
