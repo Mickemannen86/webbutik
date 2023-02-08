@@ -313,7 +313,6 @@ function deleteOneItem(id, index) {
     localStorage.setItem("output", json);
   
     cartItemCounter();
-  
     updateCart();
   }
   
