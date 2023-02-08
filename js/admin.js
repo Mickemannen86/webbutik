@@ -89,8 +89,8 @@ function getAdminContent(content) {
                     "arrayValue": {
                         "values": [{
                             "stringValue": id
-                            },
-                        ]
+                            }//,
+                        ],
                     } 
                 }
             }
@@ -101,7 +101,7 @@ function getAdminContent(content) {
   
     fetch("https://firestore.googleapis.com/v1/" + name, {
   
-        method: "PATCH",
+        method: "PATCH", // använt mig av Patch men funkar som PUT, why?
         headers: {
   
           "Content-type": "application/json"
@@ -110,7 +110,8 @@ function getAdminContent(content) {
   
         body: body
   
-      }).then(res => res.json())
+      })
+        .then(res => res.json())
         .then(data => console.log(data));
         console.log(body)
 
