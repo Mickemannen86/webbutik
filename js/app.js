@@ -23,7 +23,7 @@ FÖR VG:
 “köp”/”lägg i varukorgen”-knappar).
 
 3. En varukorgssida listar alla produkter (med minst produktnamn och pris) som valts med           -- check! --
-möjlighet att ta bort produkter innan beställning. Om webbsidan laddas om ska produkterna          https://www.w3schools.com/jsref/jsref_splice.asp
+möjlighet att ta bort produkter innan beställning. Om webbsidan laddas om ska produkterna
 fortfarande finnas kvar i varukorgen.
 
 4. En ikon för varukorgen visar hur många produkter som ligger i varukorgen.                        -- check! --
@@ -53,7 +53,7 @@ const nameEl = document.getElementById("skurt");
 const emailEl = document.getElementById("epost");
 const addressEl = document.getElementById("address");
 const shippingEl = document.getElementById("shipping");
-//const articleFrameCartEl = document.querySelector("articleFrameCart");
+
 
 //********************************************************************    Header    ****************************************************************************** */
 
@@ -81,8 +81,8 @@ fetch("https://fakestoreapi.com/products")
         });
     }
     getContent(data, "all");
-});
-
+})
+    .catch(error => console.log(error));
 
 // funktioner
 function getContent(data, selectedCategory) {
@@ -185,7 +185,8 @@ function getContent(data, selectedCategory) {
             body: body
         })
             .then(res => res.json())
-            .then(data => console.log(data));
+            .then(data => console.log(data))
+            .catch(error => console.log(error));            
             console.log(body);
 
             localStorage.clear();   // Rensa localStorage efter POST = true.
@@ -256,7 +257,6 @@ function addItem(id, item, price) {
 
 // checkout function = hämta valda artiklar man betalar
 function checkOut(sum) {
-//                                 Att Fixa:     inne i checkout, vid klick på meny, göm checkout å visa categorierna på click!!!!
 
     // Nollställa gammal utskrivt för varje gång funktionen körs
     checkoutEl.innerHTML = "";
@@ -304,8 +304,8 @@ function plusOneItem() {
 
 function deleteOneItem(id, index) {
 
-    let funka = productarray.findIndex(item => item.id === id); // <-- org - Hade en tanke men funkar utan.
-    //productarray.findIndex(item => item.id === id); //ny
+    //let funka = productarray.findIndex(item => item.id === id); // <-- org - Hade en tanke men funkar utan.
+    productarray.findIndex(item => item.id === id); //ny
   
     productarray.splice(index, 1);
   

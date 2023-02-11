@@ -10,7 +10,8 @@ const adminSectionEl = document.getElementById("adminSection");
 
 fetch("https://firestore.googleapis.com/v1/projects/webbshop-408a2/databases/(default)/documents/webbshop")
   .then(res => res.json())
-  .then(data => getAdminContent(data));
+  .then(data => getAdminContent(data))
+  .catch(error => console.log(error));
 
 function getAdminContent(content) {
 
@@ -56,7 +57,8 @@ function getAdminContent(content) {
       })
 
       .then(res => res.json())
-      .then(data => console.log(data));
+      .then(data => console.log(data))
+      .catch(error => console.log(error));
   
       setTimeout(() => location.reload(), 1000); // reload sida efter 2 sekunder från Delete ***********************************************************
   }
@@ -109,7 +111,8 @@ function getAdminContent(content) {
   
       })
         .then(res => res.json())
-        .then(data => console.log(data));
+        .then(data => console.log(data))
+        .catch(error => console.log(error));
         console.log(body)
 
         setTimeout(() => location.reload(), 2000); // reload sida efter 2 sekunder från Update ***********************************************************
