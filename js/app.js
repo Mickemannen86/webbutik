@@ -232,8 +232,9 @@ function addItem(id, item, price) {
         for (let i = 0; i < productarray.length; i++) {
             let item = productarray[i];
             sum += parseFloat(item.price);
-            html += 
-            `<tr>
+            html += `
+            <br>
+            <tr>
                 <td>${item.item}</td>
                 <td>|</td>
                 <td><b>${item.price} kr</b></td>
@@ -243,7 +244,6 @@ function addItem(id, item, price) {
 
         tillagdEl.innerHTML = html;
         totalSumCartEl.innerHTML = `
-        <br>
         <hr id="cartHR">
         <b>Total Summa: <span id="totalPrice">${sum.toFixed(2)} kr</b></span>
         <input type="button" id="checkoutButton" value="check out" onClick="checkOut(${sum.toFixed(2)}, showCheckout(), hideWebbutik())">`;
